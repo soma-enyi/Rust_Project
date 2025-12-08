@@ -1,0 +1,18 @@
+[package]
+name = "block-explorer-backend"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+actix-web = "4.9"
+actix-rt = "2.10"  # For runtime
+bitcoin = "0.32"  # For Bitcoin parsing
+rusqlite = { version = "0.32", features = ["bundled"] }  # SQLite with bundled support
+serde = { version = "1.0", features = ["derive"] }  # JSON serialization
+serde_json = "1.0"
+hex = "0.4"  # Hex encoding/decoding for hashes
+anyhow = "1.0"  # Error handling
+tokio = { version = "1.40", features = ["full"] }  # Async runtime (for file I/O)
+env_logger = "0.11.8"
+log = "0.4.29"
+bitcoin-crypto-toolkit = "0.1.0"
