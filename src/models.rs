@@ -44,3 +44,24 @@ pub struct TxOutSimplified {
     pub value: u64,
     pub script_pubkey: String,
 }
+#[derive(Serialize)]
+pub struct LatestBlocksResponse {
+    pub blocks: Vec<BlockSummary>,
+    pub total_count: u32,
+}
+
+#[derive(Serialize)]
+pub struct BlockSummary {
+    pub hash: String,
+    pub height: u32,
+    pub timestamp: u32,
+    pub tx_count: usize,
+}
+
+#[derive(Serialize)]
+pub struct StatsResponse {
+    pub total_blocks: u32,
+    pub total_transactions: u64,
+    pub latest_block_height: u32,
+    pub latest_block_hash: String,
+}
