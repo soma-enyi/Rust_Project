@@ -1,6 +1,6 @@
 [package]
 name = "regtest-block-explorer"  
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 description = "A CLI tool for indexing Bitcoin regtest blocks via RPC and serving a block explorer API."
 authors = ["Uche Ofatu <ucheofatu@gmail.com>, Nmesoma Enyi"]  

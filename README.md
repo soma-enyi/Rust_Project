@@ -1,4 +1,4 @@
-# Bitcoin Explore CLI
+# Regtest Block Explorer CLI
 
 A command-line tool for indexing and exploring Bitcoin regtest blocks. It allows users to fetch blocks from a running Bitcoin regtest node via RPC or parse them from local `.blk` files, store them in a SQLite database, and serve block/transaction data via a RESTful web API.
 
@@ -76,7 +76,7 @@ bitcoin-explore/
 Once published:
 
 ```bash
-cargo install bitcoin-explore
+cargo install regtest-block-explorer
 ```
 
 ### From Source
@@ -125,14 +125,14 @@ bitcoin-explore index [--from-file <PATH>]
 - RPC mode (requires running regtest node on port 18443):
 
   ```bash
-  bitcoin-explore index
+  regtest-block-explorer index
   ```
 
   - Significance: Connects to `http://127.0.0.1:18443` via RPC, fetches all blocks, and indexes them. Useful for live data from a node.
 
 - File mode:
   ```bash
-  bitcoin-explore index --from-file ~/.bitcoin/regtest/blocks
+  regtest-block-explorer index --from-file ~/.bitcoin/regtest/blocks
   ```
   - Significance: Parses `.blk` files directly. No node required; faster for existing data, but data must be available locally.
 
@@ -145,7 +145,7 @@ Starts the web server to query indexed data.
 **Syntax**:
 
 ```bash
-bitcoin-explore serve [--port <PORT>]
+regtest-block-explorer serve [--port <PORT>]
 ```
 
 **Options**:
@@ -155,7 +155,7 @@ bitcoin-explore serve [--port <PORT>]
 **Example**:
 
 ```bash
-bitcoin-explore serve --port 3000
+regtest-block-explorer serve --port 3000
 ```
 
 - Significance: Launches an HTTP server. Access endpoints at `http://127.0.0.1:<PORT>`. Requires prior indexing; serves data from `blocks.db`.
@@ -170,11 +170,11 @@ bitcoin-explore serve --port 3000
    ```
 2. Index blocks:
    ```bash
-   bitcoin-explore index
+   regtest-block-explorer index
    ```
 3. Serve the API:
    ```bash
-   bitcoin-explore serve
+   regtest-block-explorer serve
    ```
 4. Query data:
    ```bash
@@ -183,7 +183,7 @@ bitcoin-explore serve --port 3000
 
 ## API Endpoints
 
-All endpoints return JSON. Run `bitcoin-explore serve` to start the server.
+All endpoints return JSON. Run `regtest-block-explorer serve` to start the server.
 
 - **`GET /block/{hash}`**: Get a block by its hash.
 
